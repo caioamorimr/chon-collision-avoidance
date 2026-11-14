@@ -1,0 +1,16 @@
+mas obstacle_avoidance_vehicle {
+
+    agent chonbot_agent : chonbot_agent.asl {
+      ag-class: embedded.mas.bridges.jacamo.ros.RosBdiAgent
+      ag-arch: embedded.mas.bridges.jacamo.ros.RosBdiAgArch
+    }
+
+   agent telefonista {
+      ag-arch: jason.Concierge
+   }
+
+   uses package: concierge "com.github.chon-group:jasonEmbedded:+"
+
+
+
+}
