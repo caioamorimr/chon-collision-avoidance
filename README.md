@@ -42,6 +42,11 @@ No robô físico, conseguimos fazê-lo andar por comando, desviar de obstáculos
 
 O semáforo foi **simulado**. A consulta real ao agente do semáforo do curso (`askOne` pelo ContextNet) está comentada no `telefonista.asl`, porque a conexão com o servidor compartilhado estava ruim durante o hackathon. No lugar dela, o plano `!atualiza` troca o estado localmente: green por 15 s, depois red por cerca de 10 s, em loop. Isso exercita a parada no vermelho, mas não o caminho pela rede.
 
+Lacunas conhecidas:
+
+- Nada trata a perda de conexão com o semáforo. O `telefonista` guarda o último estado recebido, então, se o link cair com o sinal verde, o robô continua liberado para andar.
+- Depois de um sinal vermelho o robô não retoma sozinho. É preciso enviar um novo `walk` quando o sinal mudar.
+
 ## Como rodar
 
 Você precisa do ambiente do curso: ROS 2 com `rosbridge_server`, o pacote ROS `my_py_pkg` (que traz a ponte Javino), Java, e o robô ligado ao computador.
